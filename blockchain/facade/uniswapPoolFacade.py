@@ -7,8 +7,8 @@ from typing import TypedDict
 from cachetools import TTLCache, cached
 from requests import Request, Session
 
-from izumi_infra.blockchain.constants import ChainIdEnum
-from izumi_infra.utils.base_context import BaseContext
+from pone_infra.blockchain.constants import ChainIdEnum
+from pone_infra.utils.base_context import BaseContext
 
 logger = logging.getLogger(__name__)
 

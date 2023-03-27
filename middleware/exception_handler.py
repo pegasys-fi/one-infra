@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 import logging
 
-from izumi_infra.utils.APIStatus import CommonStatus
-from izumi_infra.utils.response_utils import ResponseUtil
-from izumi_infra.utils.exceptions import BizException
+from pone_infra.utils.APIStatus import CommonStatus
+from pone_infra.utils.response_utils import ResponseUtil
+from pone_infra.utils.exceptions import BizException
 
 logger = logging.getLogger(__name__)
 

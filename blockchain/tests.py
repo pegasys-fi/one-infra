@@ -4,8 +4,8 @@ from django.test import TestCase
 from rest_framework.test import APIClient
 from rest_framework import status
 
-from izumi_infra.blockchain.context import blockchainHolder
-from izumi_infra.blockchain.models import Blockchain
+from pone_infra.blockchain.context import blockchainHolder
+from pone_infra.blockchain.models import Blockchain
 
 # Create your tests here.
 class BlockchainTests(TestCase):

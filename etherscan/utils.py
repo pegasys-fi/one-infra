@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 from enum import Enum
 import logging
-from izumi_infra.etherscan.constants import INIT_SUB_STATUS, ProcessingStatusEnum, SubReceiverGroupEnum
+from pone_infra.etherscan.constants import INIT_SUB_STATUS, ProcessingStatusEnum, SubReceiverGroupEnum
 
 logger = logging.getLogger(__name__)
 
-# TODO 参数类型支持列表?
+# TODO List of supported parameter types.
 def entity_filter(contract_type: str, topic: str = None, function_name: str = None, **kwargs):
     def decorator(func):
         def wrapper(*args, **kwargs):

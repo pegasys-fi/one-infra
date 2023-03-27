@@ -9,8 +9,8 @@ from rest_framework import pagination
 from rest_framework.exceptions import NotFound, ValidationError
 from rest_framework.response import Response
 
-from izumi_infra.utils.APIStatus import CommonStatus
-from izumi_infra.utils.exceptions import BizException
+from pone_infra.utils.APIStatus import CommonStatus
+from pone_infra.utils.exceptions import BizException
 
 logger = logging.getLogger(__name__)
 

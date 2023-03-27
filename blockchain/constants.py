@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 from enum import Enum
 from typing import Dict, List, Tuple
-from izumi_infra.utils.enum import StringFieldEnum, IntegerFieldEnum
-from izumi_infra.utils import abiJsonLoader
+from pone_infra.utils.enum import StringFieldEnum, IntegerFieldEnum
+from pone_infra.utils import abiJsonLoader
 
 ZERO_ADDRESS = '0x0000000000000000000000000000000000000000'
 ONE_ADDRESS = '0x0000000000000000000000000000000000000001'
@@ -11,60 +11,27 @@ class BlockChainVmEnum(StringFieldEnum):
     EVM = "EVM"
 
 class ChainIdEnum(IntegerFieldEnum):
-    EthereumMainnet = 1
-    Rinkeby = 4
-    Optimism = 10
-    BSC = 56
-    Gatechain = 86
-    BSCTestnet = 97
-    Heco = 128
-    Matic = 137
-    Fantom = 250
-    Izumi = 1337
-    Arbitrum = 42161
-    MaticTestnet = 80001
-    Harmony = 1666600000
-    HarmonyTestnet = 1666700000
-    Aurora = 1313161554
-    AuroraTestnet = 1313161555
-    ETC = 61
-    Cronos = 25
-    ZkSyncAlphaTest = 280
-    MantleTest = 5001
-    ScrollTestL2 = 534354
-    Icplaza = 9000
-    BedrockRolluxTestL2 = 57000
-    ConfluxESpace = 1030
-    Meter = 82
-
+    RolluxTestnet = 57000
 # ChainMeta like
 ChainConfig = {
-    ChainIdEnum.EthereumMainnet: {
-        'id': ChainIdEnum.EthereumMainnet,
-        'rpc_url': 'https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161'
+    ChainIdEnum.RolluxTestnet: {
+        'id': ChainIdEnum.RolluxTestnet,
+        'rpc_url': 'https://rpc-tanenbaum.rollux.com/'
     }
 }
 
 class TokenSymbol(StringFieldEnum):
-    USDC = 'USDC'
-    ETH = 'ETH'
-    USDT = 'USDT'
-    DAI = 'DAI'
-    BIT = 'BIT'
-    iZi = 'iZi'
-    MIM = 'MIM'
-    stETH = 'STETH'
-    SPELL = 'SPELL'
-    LIDO = 'LIDO'
-    WETH = 'WETH'
-    YIN = 'YIN'
-    WBNB = 'WBNB'
-    iUSD = 'iUSD'
-    DOGE = 'DOGE'
-    SHIB = 'SHIB'
+    USDC = 'USDC',
+    WSYS = 'WSYS',
+    PSYS = 'PSYS',
+    WETH = 'WETH',
+    USDT = 'USDT',
+    DAI = 'DAI',
+    WBTC = 'WBTC',
 
-    RDT = 'RDT'
-    RDT2 = 'RDT2'
+    # test
+    FeeA = 'FeeA',
+    FeeB = 'FeeB',
 
 class AccountContractRelationshipTypeEnum(StringFieldEnum):
     OWNER = "Account is the contract owner"
@@ -113,13 +80,13 @@ class UniswapV3PoolTopicEnum(BaseTopicEnum):
 
 class BaseContractABI(Enum):
     # ERC
-    ERC20_ABI = abiJsonLoader.get('izumi_infra.blockchain.erc.erc20.json')
+    ERC20_ABI = abiJsonLoader.get('pone_infra.blockchain.erc.erc20.json')
 
     # Unisawp v3
-    UNISWAP_SWAP_ROUTER_ABI = abiJsonLoader.get('izumi_infra.blockchain.uniswap.UniswapV3SwapRouter.json')
-    UNISWAP_NONFUNGIBLE_POSITION_MANAGER_ABI = abiJsonLoader.get('izumi_infra.blockchain.uniswap.UniswapPositionManager.json')
-    UNISWAP_POOL_ABI = abiJsonLoader.get('izumi_infra.blockchain.uniswap.UniswapV3Pool.json')
-    UNISWAP_FACTORY_ABI = abiJsonLoader.get('izumi_infra.blockchain.uniswap.UniswapV3Factory.json')
+    UNISWAP_SWAP_ROUTER_ABI = abiJsonLoader.get('pone_infra.blockchain.uniswap.UniswapV3SwapRouter.json')
+    UNISWAP_NONFUNGIBLE_POSITION_MANAGER_ABI = abiJsonLoader.get('pone_infra.blockchain.uniswap.UniswapPositionManager.json')
+    UNISWAP_POOL_ABI = abiJsonLoader.get('pone_infra.blockchain.uniswap.UniswapV3Pool.json')
+    UNISWAP_FACTORY_ABI = abiJsonLoader.get('pone_infra.blockchain.uniswap.UniswapV3Factory.json')
 
 class BasicContractInfoEnum(Enum):
     def __str__(self) -> str:

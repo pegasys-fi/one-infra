@@ -4,9 +4,9 @@ from django.db.utils import IntegrityError
 from django.utils.translation import gettext as _
 from django.core.validators import MaxValueValidator
 
-from izumi_infra.blockchain.constants import ContractStatusEnum, BlockChainVmEnum, AccountContractRelationshipTypeEnum
-from izumi_infra.blockchain.conf import blockchain_settings
-from izumi_infra.utils.model_utils import validate_eth_address
+from pone_infra.blockchain.constants import ContractStatusEnum, BlockChainVmEnum, AccountContractRelationshipTypeEnum
+from pone_infra.blockchain.conf import blockchain_settings
+from pone_infra.utils.model_utils import validate_eth_address
 
 
 class Blockchain(models.Model):

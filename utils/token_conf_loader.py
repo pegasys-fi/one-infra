@@ -5,12 +5,12 @@ from typing import Dict, List, TypedDict
 from cachetools import TTLCache, cached
 import requests
 
-from izumi_infra.blockchain.types import TokenConfigType, TokenMeta
+from pone_infra.blockchain.types import TokenConfigType, TokenMeta
 
 logger = logging.getLogger(__name__)
 
-PROD_TOKEN_LIST_URL = 'https://raw.githubusercontent.com/izumiFinance/izumi-tokenList/main/build/tokenList.json'
-DEV_TOKEN_LIST_URL = 'https://raw.githubusercontent.com/izumiFinance/izumi-tokenList/main/build/tokenListDev.json'
+PROD_TOKEN_LIST_URL = 'https://static.luxy.io/ipfs/QmPg3CUHkt8xxuzA3XkFGdSV9wvdnbW4VDkr2RQY6m1WKy' #'https://raw.githubusercontent.com/izumiFinance/izumi-tokenList/main/build/tokenList.json'
+DEV_TOKEN_LIST_URL = 'https://raw.githubusercontent.com/izumiFinance/izumi-tokenList/main/build/tokenListDev.json' # TODO: change to dev url
 
 class GithubContractConfig(TypedDict):
     address: str

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from enum import Enum
-from izumi_infra.utils.enum import IntegerFieldEnum, StringFieldEnum
+from pone_infra.utils.enum import IntegerFieldEnum, StringFieldEnum
 
 class ScanTypeEnum(IntegerFieldEnum):
     # contract base scan

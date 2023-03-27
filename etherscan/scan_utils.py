@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 from typing import Dict, Set
 
-from izumi_infra.etherscan.constants import FILTER_SPLIT_CHAR
-from izumi_infra.etherscan.types import EventData
+from pone_infra.etherscan.constants import FILTER_SPLIT_CHAR
+from pone_infra.etherscan.types import EventData
 
 from hexbytes import (
     HexBytes,

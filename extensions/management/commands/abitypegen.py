@@ -4,7 +4,7 @@ import logging
 
 from django.core.management.base import BaseCommand, CommandParser
 
-from izumi_infra.utils.abi_types_generator import abiTypesGenerator
+from pone_infra.utils.abi_types_generator import abiTypesGenerator
 
 class Command(BaseCommand):
     help = 'Generate python type dict class define file from contract abi'
