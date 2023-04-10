@@ -6,7 +6,7 @@ from typing import Any, Dict, List, Set
 
 from requests import Request, Session
 
-from pone_infra.blockchain.types import TokenData
+from one_infra.blockchain.types import TokenData
 
 logger = logging.getLogger(__name__)
 

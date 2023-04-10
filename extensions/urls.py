@@ -2,8 +2,8 @@
 from django.contrib import admin
 from django.urls import path, include
 
-from pone_infra.extensions.form import PoneAuthenticationForm
-from pone_infra.extensions.conf import extensions_settings
+from one_infra.extensions.form import PoneAuthenticationForm
+from one_infra.extensions.conf import extensions_settings
 
 urlpatterns = [
     path('api/v1/captcha/', include('captcha.urls')),

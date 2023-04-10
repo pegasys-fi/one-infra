@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.contrib import admin
 
-from pone_infra.blockchain.models import (Blockchain, Contract, AccountContractRelationship,
+from one_infra.blockchain.models import (Blockchain, Contract, AccountContractRelationship,
     Account, TransactionSignInfo)
 
 # Register your models here.

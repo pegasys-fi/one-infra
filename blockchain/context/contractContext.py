@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 from typing import Generic, TypeVar
 
-from pone_infra.blockchain.conf import blockchain_settings
-from pone_infra.blockchain.context import blockchainHolder, blockchainMetaHolder
-from pone_infra.blockchain.facade.contractFacade import ContractFacade
-from pone_infra.blockchain.models import Blockchain, Contract
-from pone_infra.blockchain.types import ContractMeta
-from pone_infra.utils.base_context import BaseContext
+from one_infra.blockchain.conf import blockchain_settings
+from one_infra.blockchain.context import blockchainHolder, blockchainMetaHolder
+from one_infra.blockchain.facade.contractFacade import ContractFacade
+from one_infra.blockchain.models import Blockchain, Contract
+from one_infra.blockchain.types import ContractMeta
+from one_infra.utils.base_context import BaseContext
 
 
 F = TypeVar('F')

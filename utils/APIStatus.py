@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from pone_infra.utils.enum import StringEnum
+from one_infra.utils.enum import StringEnum
 
 class CommonStatus(StringEnum):
     OK = "Ok"

@@ -2,13 +2,13 @@ from django.db import models
 from django.db.models import F, Case, When
 from django.utils.translation import gettext as _
 
-from pone_infra.blockchain.models import Contract
-from pone_infra.etherscan.conf import etherscan_settings
-from pone_infra.etherscan.constants import (INIT_SUB_STATUS, MAX_SUB_STATUS_BIT, ProcessingStatusEnum,
+from one_infra.blockchain.models import Contract
+from one_infra.etherscan.conf import etherscan_settings
+from one_infra.etherscan.constants import (INIT_SUB_STATUS, MAX_SUB_STATUS_BIT, ProcessingStatusEnum,
                                              ScanConfigAuditLevelEnum,
                                              ScanConfigStatusEnum, ScanModeEnum,
                                              ScanTaskStatusEnum, ScanTypeEnum)
-from pone_infra.utils.model_utils import validate_checksum_address_list
+from one_infra.utils.model_utils import validate_checksum_address_list
 
 # Create your models here.
 

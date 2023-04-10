@@ -4,7 +4,7 @@ from django.core.exceptions import ValidationError
 
 from captcha.fields import CaptchaField
 
-from pone_infra.extensions.conf import extensions_settings
+from one_infra.extensions.conf import extensions_settings
 
 import logging
 

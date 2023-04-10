@@ -6,7 +6,7 @@ from django.core.mail import send_mail
 from cachetools import TTLCache, cached
 from django.conf import settings
 
-from pone_infra.extensions.conf import extensions_settings
+from one_infra.extensions.conf import extensions_settings
 
 logger = logging.getLogger(__name__)
 

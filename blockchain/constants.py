@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 from enum import Enum
 from typing import Dict, List, Tuple
-from pone_infra.utils.enum import StringFieldEnum, IntegerFieldEnum
-from pone_infra.utils import abiJsonLoader
+from one_infra.utils.enum import StringFieldEnum, IntegerFieldEnum
+from one_infra.utils import abiJsonLoader
 
 ZERO_ADDRESS = '0x0000000000000000000000000000000000000000'
 ONE_ADDRESS = '0x0000000000000000000000000000000000000001'
@@ -80,13 +80,13 @@ class UniswapV3PoolTopicEnum(BaseTopicEnum):
 
 class BaseContractABI(Enum):
     # ERC
-    ERC20_ABI = abiJsonLoader.get('pone_infra.blockchain.erc.erc20.json')
+    ERC20_ABI = abiJsonLoader.get('one_infra.blockchain.erc.erc20.json')
 
     # Unisawp v3
-    UNISWAP_SWAP_ROUTER_ABI = abiJsonLoader.get('pone_infra.blockchain.uniswap.UniswapV3SwapRouter.json')
-    UNISWAP_NONFUNGIBLE_POSITION_MANAGER_ABI = abiJsonLoader.get('pone_infra.blockchain.uniswap.UniswapPositionManager.json')
-    UNISWAP_POOL_ABI = abiJsonLoader.get('pone_infra.blockchain.uniswap.UniswapV3Pool.json')
-    UNISWAP_FACTORY_ABI = abiJsonLoader.get('pone_infra.blockchain.uniswap.UniswapV3Factory.json')
+    UNISWAP_SWAP_ROUTER_ABI = abiJsonLoader.get('one_infra.blockchain.uniswap.UniswapV3SwapRouter.json')
+    UNISWAP_NONFUNGIBLE_POSITION_MANAGER_ABI = abiJsonLoader.get('one_infra.blockchain.uniswap.UniswapPositionManager.json')
+    UNISWAP_POOL_ABI = abiJsonLoader.get('one_infra.blockchain.uniswap.UniswapV3Pool.json')
+    UNISWAP_FACTORY_ABI = abiJsonLoader.get('one_infra.blockchain.uniswap.UniswapV3Factory.json')
 
 class BasicContractInfoEnum(Enum):
     def __str__(self) -> str:

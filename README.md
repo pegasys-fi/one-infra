@@ -4,15 +4,15 @@
 
 1. goto your project src dir
 2. `git submodule add git@github.com:pegasys-fi/one-infra.git`
-3. add django app under pone_infra to `INSTALLED_APPS`, such as `pone_infra.blockchain` `pone_infra.etherscan`
+3. add django app under one_infra to `INSTALLED_APPS`, such as `one_infra.blockchain` `one_infra.etherscan`
 4. optional, you can load base fixture data from app fixture dir by `python manage.py loaddata xxx`
 
 ## Develop
 
-update pone_infra package version
+update one_infra package version
 
-1. rewire pone_infra code until finished
-2. pone_infra submodule git commit
+1. rewire one_infra code until finished
+2. one_infra submodule git commit
 3. `git tag a v0.0.1 -m 'Your improve message'` then `git push origin --tags`
 4. `git checkout v0.0.1`
 5. top git project commit
@@ -28,9 +28,9 @@ update pone_infra package version
 ```py
 # -*- coding: utf-8 -*-
 from enum import Enum
-from pone_infra.blockchain.constants import BaseContractInfoEnum, BaseTopicEnum, BasicContractInfoEnum
-from pone_infra.utils import abiJsonLoader
-from pone_infra.utils.enum_utils import extend_enum
+from one_infra.blockchain.constants import BaseContractInfoEnum, BaseTopicEnum, BasicContractInfoEnum
+from one_infra.utils import abiJsonLoader
+from one_infra.utils.enum_utils import extend_enum
 
 class ContractABI(Enum):
     HOURAI_ABI = abiJsonLoader.get('apps.gallery.hourai.json')
@@ -47,35 +47,35 @@ class ContractInfoEnum(BasicContractInfoEnum):
 2. override default enum class for blockchain in `setting.py`
 
 ```py
-PONE_INFRA_BLOCKCHAIN = {
+ONE_INFRA_BLOCKCHAIN = {
     'CONTRACT_CHOICES_CLASS': 'apps.utils.blockchain_const.ContractInfoEnum'
 }
 ```
 
 #### blockchain conf & fixture
 
-support change default conf by set new object named `PONE_INFRA_BLOCKCHAIN`, or set env variable, see
-`pone_infra/blockchain/conf.py` for detail.
+support change default conf by set new object named `ONE_INFRA_BLOCKCHAIN`, or set env variable, see
+`one_infra/blockchain/conf.py` for detail.
 
 ### etherscan
 
 #### etherscan conf
 
-support change default conf by set new object named `PONE_INFRA_ETHERSCAN`, or set env variable, see
-`pone_infra/etherscan/conf.py` for detail.
+support change default conf by set new object named `ONE_INFRA_ETHERSCAN`, or set env variable, see
+`one_infra/etherscan/conf.py` for detail.
 
 ### extensions
 
 #### admin login ip limit and captcha
 
-add pone_infra.extensions at your INSTALLED_APPS.
+add one_infra.extensions at your INSTALLED_APPS.
 
 ```py
-# add pone_infra/extensions/templates to TEMPLATES.DIRS
+# add one_infra/extensions/templates to TEMPLATES.DIRS
 TEMPLATES = [
     {
         ...
-        'DIRS': [os.path.join(BASE_DIR, "templates/"), os.path.join(BASE_DIR, "../pone_infra/extensions/templates/")],
+        'DIRS': [os.path.join(BASE_DIR, "templates/"), os.path.join(BASE_DIR, "../one_infra/extensions/templates/")],
         ...
     },
 ]
@@ -83,7 +83,7 @@ TEMPLATES = [
 # add url to your root project url setting, remind add this path to your admin nginx proxy
 urlpatterns = [
     ...
-    path('', include('pone_infra.extensions.urls')),
+    path('', include('one_infra.extensions.urls')),
 ]
 
 # custom your Captcha conf, ref: https://django-simple-captcha.readthedocs.io/en/latest/
@@ -113,14 +113,14 @@ location ^~ /admin/ {
 }
 ```
 
-limit ip and admin site title conf see `pone_infra/extensions/conf.py`.
+limit ip and admin site title conf see `one_infra/extensions/conf.py`.
 
 #### django manage commands
 
 features:
 
 - `abitypegen` generate typing files of Python by Contract abi file
-  - example: `python manage.py abitypegen pone_infra/blockchain/data/abi/erc/erc20.json`
+  - example: `python manage.py abitypegen one_infra/blockchain/data/abi/erc/erc20.json`
 - `backupdb` backup database as sql file
 - `cleanup` reset database for django project initial
 - `loaddatax` load fixtures data with ignore
@@ -137,7 +137,7 @@ LOGGING = {
         ...
         'email-alert': {
             'level': 'FATAL',
-            'class': 'pone_infra.extensions.AsyncEmailAlertLogHandler',
+            'class': 'one_infra.extensions.AsyncEmailAlertLogHandler',
             'formatter': 'verbose'
         },
     },
@@ -169,10 +169,10 @@ You can invoke method which register by `SYSTEM_INVOKE_METHOD_LIST` in admin pag
 
 ```py
 # django config file
-PONE_INFRA_EXTENSIONS = {
+ONE_INFRA_EXTENSIONS = {
     'SYSTEM_INVOKE_METHOD_LIST': (
         # module path, method name
-        ('pone_infra.extensions.tasks', 'get_superuser_email_list'),
+        ('one_infra.extensions.tasks', 'get_superuser_email_list'),
     )
 }
 ```
@@ -188,6 +188,6 @@ add it to your django conf like
 ```py
 MIDDLEWARE = [
     ...
-    'pone_infra.middleware.exception_handler.ExceptionMiddleware'
+    'one_infra.middleware.exception_handler.ExceptionMiddleware'
 ]
 ```

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from enum import Enum
 import logging
-from pone_infra.etherscan.constants import INIT_SUB_STATUS, ProcessingStatusEnum, SubReceiverGroupEnum
+from one_infra.etherscan.constants import INIT_SUB_STATUS, ProcessingStatusEnum, SubReceiverGroupEnum
 
 logger = logging.getLogger(__name__)
 

@@ -11,9 +11,9 @@ from hexbytes import HexBytes
 from web3.datastructures import AttributeDict
 from web3.types import EventData, TxData, TxReceipt
 
-from pone_infra.blockchain.constants import ZERO_ADDRESS
-from pone_infra.blockchain.facade import BlockchainFacade
-from pone_infra.utils.collection_utils import merge_dict_in_list, tuple_to_typedict
+from one_infra.blockchain.constants import ZERO_ADDRESS
+from one_infra.blockchain.facade import BlockchainFacade
+from one_infra.utils.collection_utils import merge_dict_in_list, tuple_to_typedict
 
 logger = logging.getLogger(__name__)
 

@@ -3,21 +3,21 @@ import os
 
 from django.test.signals import setting_changed
 
-from pone_infra.utils.setting_helper import AppSettings
+from one_infra.utils.setting_helper import AppSettings
 
 DEFAULTS = {
-    'WEB3_HTTP_RPC_TIMEOUT': int(os.environ.get("PONE_INFRA_BLOCKCHAIN.WEB3_HTTP_RPC_TIMEOUT", 15)),
-    'CONTRACT_CHOICES_CLASS': 'pone_infra.blockchain.constants.BaseContractInfoEnum',
-    'SIGN_MAX_RETRY_COUNT': int(os.environ.get("PONE_INFRA_BLOCKCHAIN.SIGN_MAX_RETRY_COUNT", 3)),
-    'SIGN_RANDOM_GAS_PRICE_WEI_OFFSET': int(os.environ.get("PONE_INFRA_BLOCKCHAIN.SIGN_RANDOM_GAS_PRICE_WEI_OFFSET", 10_000)),
-    'BLOCK_NEAR_TIME_TOLERANCE_BLOCK': int(os.environ.get("PONE_INFRA_BLOCKCHAIN.BLOCK_NEAR_TIME_TOLERANCE_BLOCK", 100)),
+    'WEB3_HTTP_RPC_TIMEOUT': int(os.environ.get("ONE_INFRA_BLOCKCHAIN.WEB3_HTTP_RPC_TIMEOUT", 15)),
+    'CONTRACT_CHOICES_CLASS': 'one_infra.blockchain.constants.BaseContractInfoEnum',
+    'SIGN_MAX_RETRY_COUNT': int(os.environ.get("ONE_INFRA_BLOCKCHAIN.SIGN_MAX_RETRY_COUNT", 3)),
+    'SIGN_RANDOM_GAS_PRICE_WEI_OFFSET': int(os.environ.get("ONE_INFRA_BLOCKCHAIN.SIGN_RANDOM_GAS_PRICE_WEI_OFFSET", 10_000)),
+    'BLOCK_NEAR_TIME_TOLERANCE_BLOCK': int(os.environ.get("ONE_INFRA_BLOCKCHAIN.BLOCK_NEAR_TIME_TOLERANCE_BLOCK", 100)),
 }
 
 IMPORT_STRINGS = {
     'CONTRACT_CHOICES_CLASS'
 }
 
-USER_SETTING_KEY = 'PONE_INFRA_BLOCKCHAIN'
+USER_SETTING_KEY = 'ONE_INFRA_BLOCKCHAIN'
 
 blockchain_settings = AppSettings(USER_SETTING_KEY, DEFAULTS, import_strings=IMPORT_STRINGS)
 
