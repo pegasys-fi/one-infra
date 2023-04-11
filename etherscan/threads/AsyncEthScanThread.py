@@ -7,12 +7,12 @@ from typing import Dict, List, TypedDict
 
 from websockets import connect
 
-from pone_infra.blockchain.constants import ZERO_ADDRESS
-from pone_infra.etherscan.constants import (ScanConfigStatusEnum,
+from one_infra.blockchain.constants import ZERO_ADDRESS
+from one_infra.etherscan.constants import (ScanConfigStatusEnum,
                                              ScanModeEnum, ScanTypeEnum)
-from pone_infra.etherscan.scan_utils import get_filter_set_from_str
-from pone_infra.utils.abi_helper import get_event_topic_to_selector
-from pone_infra.utils.task_utils import is_celery_worker_mode
+from one_infra.etherscan.scan_utils import get_filter_set_from_str
+from one_infra.utils.abi_helper import get_event_topic_to_selector
+from one_infra.utils.task_utils import is_celery_worker_mode
 
 
 # from asgiref.sync import sync_to_async
@@ -30,10 +30,10 @@ class AsyncEthScanThread(Thread):
 
     def run(self):
         # must import django related things here
-        from pone_infra.blockchain.conf import blockchain_settings
-        from pone_infra.etherscan.conf import etherscan_settings
-        from pone_infra.etherscan.models import EtherScanConfig
-        from pone_infra.etherscan.tasks import etherscan_async_event_save
+        from one_infra.blockchain.conf import blockchain_settings
+        from one_infra.etherscan.conf import etherscan_settings
+        from one_infra.etherscan.models import EtherScanConfig
+        from one_infra.etherscan.tasks import etherscan_async_event_save
 
         if not etherscan_settings.ENABLE_ASYNC_EVENT_SCANT: return
 

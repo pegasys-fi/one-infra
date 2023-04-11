@@ -3,13 +3,13 @@ from datetime import datetime
 from typing import List
 from django.conf import settings
 from django.contrib import admin
-from pone_infra.etherscan.constants import INIT_SUB_STATUS, MAX_SUB_STATUS_BIT, ProcessingStatusEnum, ScanTaskStatusEnum, ScanTypeEnum
-from pone_infra.etherscan.facade.scanEventFacade import execute_unfinished_event_scan_task, scan_contract_event_by_config
-from pone_infra.etherscan.facade.scanTransFacade import execute_unfinished_trans_scan_task, scan_contract_transactions_by_config
+from one_infra.etherscan.constants import INIT_SUB_STATUS, MAX_SUB_STATUS_BIT, ProcessingStatusEnum, ScanTaskStatusEnum, ScanTypeEnum
+from one_infra.etherscan.facade.scanEventFacade import execute_unfinished_event_scan_task, scan_contract_event_by_config
+from one_infra.etherscan.facade.scanTransFacade import execute_unfinished_trans_scan_task, scan_contract_transactions_by_config
 
-from pone_infra.etherscan.models import ContractEvent, ContractEventScanTask, ContractTransaction, ContractTransactionScanTask, EtherScanConfig
+from one_infra.etherscan.models import ContractEvent, ContractEventScanTask, ContractTransaction, ContractTransactionScanTask, EtherScanConfig
 
-from pone_infra.etherscan.conf import etherscan_settings
+from one_infra.etherscan.conf import etherscan_settings
 
 @admin.register(EtherScanConfig)
 class EtherScanConfigAdmin(admin.ModelAdmin):

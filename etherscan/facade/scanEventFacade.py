@@ -7,17 +7,17 @@ import traceback
 
 from django.db.utils import IntegrityError
 
-from pone_infra.blockchain.context import contractHolder
-from pone_infra.etherscan.conf import etherscan_settings
-from pone_infra.etherscan.constants import (FILTER_SPLIT_CHAR,
+from one_infra.blockchain.context import contractHolder
+from one_infra.etherscan.conf import etherscan_settings
+from one_infra.etherscan.constants import (FILTER_SPLIT_CHAR,
                                              ScanConfigStatusEnum,
                                              ScanTaskStatusEnum, ScanTypeEnum)
-from pone_infra.etherscan.models import (ContractEvent, ContractEventScanTask,
+from one_infra.etherscan.models import (ContractEvent, ContractEventScanTask,
                                           EtherScanConfig)
-from pone_infra.etherscan.scan_utils import dict_to_EventData, get_filter_set_from_str
-from pone_infra.etherscan.types import EventExtra, EventExtraData
-from pone_infra.utils.collection_utils import chunks
-from pone_infra.utils.db_utils import DjangoDbConnSafeThreadPoolExecutor
+from one_infra.etherscan.scan_utils import dict_to_EventData, get_filter_set_from_str
+from one_infra.etherscan.types import EventExtra, EventExtraData
+from one_infra.utils.collection_utils import chunks
+from one_infra.utils.db_utils import DjangoDbConnSafeThreadPoolExecutor
 
 logger = logging.getLogger(__name__)
 

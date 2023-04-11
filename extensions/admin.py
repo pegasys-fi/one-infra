@@ -8,11 +8,11 @@ from django import forms
 from django.contrib import admin
 from django.contrib.auth.admin import csrf_protect_m
 
-from pone_infra.extensions.conf import extensions_settings
-from pone_infra.utils.APIStatus import CommonStatus
-from pone_infra.utils.admin_utils import NonModelAdmin, register
-from pone_infra.utils.date_utils import PYTHON_DATETIME_FORMAT
-from pone_infra.utils.exceptions import BizException
+from one_infra.extensions.conf import extensions_settings
+from one_infra.utils.APIStatus import CommonStatus
+from one_infra.utils.admin_utils import NonModelAdmin, register
+from one_infra.utils.date_utils import PYTHON_DATETIME_FORMAT
+from one_infra.utils.exceptions import BizException
 
 logger = logging.getLogger(__name__)
 

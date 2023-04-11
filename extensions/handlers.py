@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from logging import LogRecord, StreamHandler
 
-from pone_infra.extensions.tasks import send_email_to_superuser_task
+from one_infra.extensions.tasks import send_email_to_superuser_task
 
 class AsyncEmailAlertLogHandler(StreamHandler):
     def __init__(self, include_html=False):

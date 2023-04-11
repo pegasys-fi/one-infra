@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 import logging
 
-from pone_infra.utils.APIStatus import CommonStatus
-from pone_infra.utils.response_utils import ResponseUtil
-from pone_infra.utils.exceptions import BizException
+from one_infra.utils.APIStatus import CommonStatus
+from one_infra.utils.response_utils import ResponseUtil
+from one_infra.utils.exceptions import BizException
 
 logger = logging.getLogger(__name__)
 

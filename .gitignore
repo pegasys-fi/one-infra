@@ -6,6 +6,10 @@ uwsgi.ini
 *.db
 *.rdb
 celerybeat-schedule.*
+venv
+env
+src/env
+src/venv
 
 # cache
 *.pyc

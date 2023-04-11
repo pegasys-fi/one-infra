@@ -5,7 +5,7 @@ from typing import Dict, List, TypedDict
 from cachetools import TTLCache, cached
 import requests
 
-from pone_infra.blockchain.types import TokenConfigType, TokenMeta
+from one_infra.blockchain.types import TokenConfigType, TokenMeta
 
 logger = logging.getLogger(__name__)
 
