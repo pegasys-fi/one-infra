@@ -47,17 +47,34 @@ ChainConfig = {
 }
 
 class TokenSymbol(StringFieldEnum):
-    USDC = 'USDC',
+    USDC = 'USDC'
     WSYS = 'WSYS',
     PSYS = 'PSYS',
     WETH = 'WETH',
-    USDT = 'USDT',
-    DAI = 'DAI',
+    ETH = 'ETH'
+    USDT = 'USDT'
+    DAI = 'DAI'
     WBTC = 'WBTC',
+    BIT = 'BIT'
+    iZi = 'iZi'
+    MIM = 'MIM'
+    stETH = 'STETH'
+    SPELL = 'SPELL'
+    LIDO = 'LIDO'
+    WETH = 'WETH'
+    YIN = 'YIN'
+    WBNB = 'WBNB'
+    iUSD = 'iUSD'
+    DOGE = 'DOGE'
+    SHIB = 'SHIB'
+
+    RDT = 'RDT'
+    RDT2 = 'RDT2'
 
     # test
     FeeA = 'FeeA',
     FeeB = 'FeeB',
+
 
 class AccountContractRelationshipTypeEnum(StringFieldEnum):
     OWNER = "Account is the contract owner"
