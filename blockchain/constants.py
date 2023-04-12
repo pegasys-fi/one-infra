@@ -48,13 +48,12 @@ ChainConfig = {
 
 class TokenSymbol(StringFieldEnum):
     USDC = 'USDC'
-    WSYS = 'WSYS',
-    PSYS = 'PSYS',
-    WETH = 'WETH',
+    WSYS = 'WSYS'
+    PSYS = 'PSYS'
     ETH = 'ETH'
     USDT = 'USDT'
     DAI = 'DAI'
-    WBTC = 'WBTC',
+    WBTC = 'WBTC'
     BIT = 'BIT'
     iZi = 'iZi'
     MIM = 'MIM'
