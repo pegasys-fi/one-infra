@@ -12,6 +12,32 @@ class BlockChainVmEnum(StringFieldEnum):
 
 class ChainIdEnum(IntegerFieldEnum):
     RolluxTestnet = 57000
+    EthereumMainnet = 1
+    Rinkeby = 4
+    Optimism = 10
+    BSC = 56
+    Gatechain = 86
+    BSCTestnet = 97
+    Heco = 128
+    Matic = 137
+    Fantom = 250
+    Izumi = 1337
+    Arbitrum = 42161
+    MaticTestnet = 80001
+    Harmony = 1666600000
+    HarmonyTestnet = 1666700000
+    Aurora = 1313161554
+    AuroraTestnet = 1313161555
+    ETC = 61
+    Cronos = 25
+    ZkSyncAlphaTest = 280
+    MantleTest = 5001
+    ScrollTestL2 = 534354
+    Icplaza = 9000
+    BedrockRolluxTestL2 = 57000
+    ConfluxESpace = 1030
+    Meter = 82
+
 # ChainMeta like
 ChainConfig = {
     ChainIdEnum.RolluxTestnet: {
