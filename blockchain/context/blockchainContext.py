@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-from izumi_infra.blockchain.constants import BlockChainVmEnum
-from izumi_infra.blockchain.facade import BlockchainFacade
-from izumi_infra.blockchain.models import Blockchain
-from izumi_infra.blockchain.types import ChainMeta
-from izumi_infra.utils.base_context import BaseContext
+from one_infra.blockchain.constants import BlockChainVmEnum
+from one_infra.blockchain.facade import BlockchainFacade
+from one_infra.blockchain.models import Blockchain
+from one_infra.blockchain.types import ChainMeta
+from one_infra.utils.base_context import BaseContext
 
 class BlockchainContext(BaseContext):
     """

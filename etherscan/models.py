@@ -2,34 +2,34 @@ from django.db import models
 from django.db.models import F, Case, When
 from django.utils.translation import gettext as _
 
-from izumi_infra.blockchain.models import Contract
-from izumi_infra.etherscan.conf import etherscan_settings
-from izumi_infra.etherscan.constants import (INIT_SUB_STATUS, MAX_SUB_STATUS_BIT, ProcessingStatusEnum,
+from one_infra.blockchain.models import Contract
+from one_infra.etherscan.conf import etherscan_settings
+from one_infra.etherscan.constants import (INIT_SUB_STATUS, MAX_SUB_STATUS_BIT, ProcessingStatusEnum,
                                              ScanConfigAuditLevelEnum,
                                              ScanConfigStatusEnum, ScanModeEnum,
                                              ScanTaskStatusEnum, ScanTypeEnum)
-from izumi_infra.utils.model_utils import validate_checksum_address_list
+from one_infra.utils.model_utils import validate_checksum_address_list
 
 # Create your models here.
 
 class EtherScanConfig(models.Model):
     id = models.BigAutoField(primary_key=True)
 
-    # 如果是 0 地址的合约，地址过滤时将使用本合约的地址
+    # If it is a contract with a 0 address, the address of this contract will be used for filtering when retrieving data.
     contract = models.ForeignKey(Contract, on_delete=models.SET_NULL, null=True, related_name = 'RelatedEtherScanConfig')
     scan_type = models.SmallIntegerField("ScanType", default=ScanTypeEnum.Event.value, choices=ScanTypeEnum.choices())
     scan_mode = models.SmallIntegerField("ScanMode", default=ScanModeEnum.Basic.value, choices=ScanModeEnum.choices())
 
     stable_block_offset = models.PositiveSmallIntegerField("StableBlockOffset", default=etherscan_settings.SAFE_BLOCK_NUM_OFFSET)
 
-    # 如果有这，替代默认的 contract 字段作为过滤地址的地址集合
+    # If available, use an alternative field instead of the default contract field as a collection of addresses for address filtering.
     to_address_filter_list = models.TextField("ToAddressFilterList", blank=True, default="", validators=[validate_checksum_address_list])
 
     from_address_filter_list = models.CharField("FromAddressFilterList", max_length=512, blank=True, default="", validators=[validate_checksum_address_list])
     topic_filter_list = models.CharField("TopicFilterList", max_length=256, blank=True, default="")
     function_filter_list = models.CharField("FunctionFilterList", max_length=256, blank=True, default="")
 
-    # 最大重试交付次数，0 不重试
+    # Maximum retry delivery attempts, 0 means no retry.
     max_deliver_retry = models.IntegerField("MaxRetryDeliver", default=etherscan_settings.DEFAULT_MAX_DELIVER_RETRY)
     audit_level = models.PositiveIntegerField("AuditLevel", default=ScanConfigAuditLevelEnum.ENABLE.value, choices=ScanConfigAuditLevelEnum.choices())
 
@@ -39,7 +39,7 @@ class EtherScanConfig(models.Model):
     update_time = models.DateTimeField("UpdateTime", auto_now=True)
 
     def save(self, *args, **kwargs) -> None:
-        # 不允许状态激活的存在多个
+        # Multiple existence of disallowed activated states is not allowed.
         if self.status == ScanConfigStatusEnum.ENABLE:
             EtherScanConfig.objects.filter(
                 contract=self.contract,
@@ -62,7 +62,7 @@ class EtherScanConfig(models.Model):
         return f'EthScanCfg-{self.id}-{getattr(self.contract, "type", "None")}-{ScanTypeEnum(self.scan_type).name}'
 
 class ContractTransactionScanTask(models.Model):
-    # TODO 索引
+    # TODO Index.
     id = models.BigAutoField(primary_key=True)
 
     scan_config = models.ForeignKey(EtherScanConfig, on_delete=models.SET_NULL, null=True,
@@ -70,7 +70,7 @@ class ContractTransactionScanTask(models.Model):
     contract = models.ForeignKey(
         Contract, on_delete=models.SET_NULL, null=True, related_name='RelatedTransScanTask')
 
-    # 左闭右开
+    # Left-closed and right-open.
     start_block_id = models.PositiveBigIntegerField("StartBlockId")
     end_block_id = models.PositiveBigIntegerField("EndBlockId", db_index=True)
 
@@ -116,7 +116,7 @@ class ContractEventScanTask(models.Model):
         return f'EventScanTsk-{self.id}'
 
 class ContractTransaction(models.Model):
-    # TODO 索引
+    # TODO Index.
     id = models.BigAutoField(primary_key=True)
 
     contract = models.ForeignKey(Contract, on_delete=models.SET_NULL, null=True, related_name = 'RelatedContractTrans')
@@ -172,7 +172,7 @@ class ContractTransaction(models.Model):
         return f"ContractTrans-{self.id}"
 
 class ContractEvent(models.Model):
-    # TODO 索引
+    # TODO Index.
     id = models.BigAutoField(primary_key=True)
 
     contract = models.ForeignKey(Contract, on_delete=models.SET_NULL, null=True, related_name = 'RelatedEvent')

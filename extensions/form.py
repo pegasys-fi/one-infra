@@ -4,13 +4,13 @@ from django.core.exceptions import ValidationError
 
 from captcha.fields import CaptchaField
 
-from izumi_infra.extensions.conf import extensions_settings
+from one_infra.extensions.conf import extensions_settings
 
 import logging
 
 logger = logging.getLogger(__name__)
 
-class IzumiAuthenticationForm(AuthenticationForm):
+class PoneAuthenticationForm(AuthenticationForm):
     captcha = CaptchaField()
 
     def confirm_login_allowed(self, user):

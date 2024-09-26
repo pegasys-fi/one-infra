@@ -7,12 +7,12 @@ from typing import Dict, List, TypedDict
 
 from websockets import connect
 
-from izumi_infra.blockchain.constants import ZERO_ADDRESS
-from izumi_infra.etherscan.constants import (ScanConfigStatusEnum,
+from one_infra.blockchain.constants import ZERO_ADDRESS
+from one_infra.etherscan.constants import (ScanConfigStatusEnum,
                                              ScanModeEnum, ScanTypeEnum)
-from izumi_infra.etherscan.scan_utils import get_filter_set_from_str
-from izumi_infra.utils.abi_helper import get_event_topic_to_selector
-from izumi_infra.utils.task_utils import is_celery_worker_mode
+from one_infra.etherscan.scan_utils import get_filter_set_from_str
+from one_infra.utils.abi_helper import get_event_topic_to_selector
+from one_infra.utils.task_utils import is_celery_worker_mode
 
 
 # from asgiref.sync import sync_to_async
@@ -30,10 +30,10 @@ class AsyncEthScanThread(Thread):
 
     def run(self):
         # must import django related things here
-        from izumi_infra.blockchain.conf import blockchain_settings
-        from izumi_infra.etherscan.conf import etherscan_settings
-        from izumi_infra.etherscan.models import EtherScanConfig
-        from izumi_infra.etherscan.tasks import etherscan_async_event_save
+        from one_infra.blockchain.conf import blockchain_settings
+        from one_infra.etherscan.conf import etherscan_settings
+        from one_infra.etherscan.models import EtherScanConfig
+        from one_infra.etherscan.tasks import etherscan_async_event_save
 
         if not etherscan_settings.ENABLE_ASYNC_EVENT_SCANT: return
 
@@ -81,7 +81,7 @@ class AsyncEthScanThread(Thread):
                             #     response = await ws.send(json.dumps({"id": 2, "method": "eth_unsubscribe", "params": [recv_subscription_id]}))
                             #     logger.warn(f'eth_unsubscribe: {recv_subscription_id} diff current: {subscription_id}, result {response}')
                         except asyncio.TimeoutError as e:
-                            # 需要超时机制来重连保证稳定性
+                            # A timeout mechanism is needed for reconnection to ensure stability.
                             logger.error('SubscriptionTimeout, start reSubscription')
                             break
                         except Exception as e:

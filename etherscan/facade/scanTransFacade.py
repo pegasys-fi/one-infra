@@ -5,17 +5,17 @@ from typing import List
 
 from django.db.utils import IntegrityError
 
-from izumi_infra.blockchain.context import contractHolder
-from izumi_infra.etherscan.conf import etherscan_settings
-from izumi_infra.etherscan.constants import (FILTER_SPLIT_CHAR,
+from one_infra.blockchain.context import contractHolder
+from one_infra.etherscan.conf import etherscan_settings
+from one_infra.etherscan.constants import (FILTER_SPLIT_CHAR,
                                              ScanConfigStatusEnum,
                                              ScanTaskStatusEnum, ScanTypeEnum)
-from izumi_infra.etherscan.models import (ContractTransaction,
+from one_infra.etherscan.models import (ContractTransaction,
                                           ContractTransactionScanTask,
                                           EtherScanConfig)
-from izumi_infra.etherscan.types import TransExtra, TransExtraData
-from izumi_infra.utils.collection_utils import chunks
-from izumi_infra.utils.db_utils import DjangoDbConnSafeThreadPoolExecutor
+from one_infra.etherscan.types import TransExtra, TransExtraData
+from one_infra.utils.collection_utils import chunks
+from one_infra.utils.db_utils import DjangoDbConnSafeThreadPoolExecutor
 
 logger = logging.getLogger(__name__)
 

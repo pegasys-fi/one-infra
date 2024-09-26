@@ -3,17 +3,17 @@ from datetime import datetime
 from typing import List
 from django.conf import settings
 from django.contrib import admin
-from izumi_infra.etherscan.constants import INIT_SUB_STATUS, MAX_SUB_STATUS_BIT, ProcessingStatusEnum, ScanTaskStatusEnum, ScanTypeEnum
-from izumi_infra.etherscan.facade.scanEventFacade import execute_unfinished_event_scan_task, scan_contract_event_by_config
-from izumi_infra.etherscan.facade.scanTransFacade import execute_unfinished_trans_scan_task, scan_contract_transactions_by_config
+from one_infra.etherscan.constants import INIT_SUB_STATUS, MAX_SUB_STATUS_BIT, ProcessingStatusEnum, ScanTaskStatusEnum, ScanTypeEnum
+from one_infra.etherscan.facade.scanEventFacade import execute_unfinished_event_scan_task, scan_contract_event_by_config
+from one_infra.etherscan.facade.scanTransFacade import execute_unfinished_trans_scan_task, scan_contract_transactions_by_config
 
-from izumi_infra.etherscan.models import ContractEvent, ContractEventScanTask, ContractTransaction, ContractTransactionScanTask, EtherScanConfig
+from one_infra.etherscan.models import ContractEvent, ContractEventScanTask, ContractTransaction, ContractTransactionScanTask, EtherScanConfig
 
-from izumi_infra.etherscan.conf import etherscan_settings
+from one_infra.etherscan.conf import etherscan_settings
 
 @admin.register(EtherScanConfig)
 class EtherScanConfigAdmin(admin.ModelAdmin):
-    # TODO action 可以删掉数据
+    # TODO action Data can be deleted.
     actions = ['do_scan_by_config']
     list_filter = ['contract', 'scan_type', 'status']
     list_display = ('__str__', 'contract', 'scan_type', 'scan_mode', 'status', 'create_time')

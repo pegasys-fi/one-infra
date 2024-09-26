@@ -2,7 +2,7 @@
 from decimal import Decimal
 from typing import Dict
 
-from izumi_infra.blockchain.types import TokenConfigType, TokenMeta
+from one_infra.blockchain.types import TokenConfigType, TokenMeta
 
 def convert_amount(from_amount: str, from_decimals: int, to_decimal: int):
     """

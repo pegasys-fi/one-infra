@@ -6,7 +6,7 @@ from django.core.mail import send_mail
 from cachetools import TTLCache, cached
 from django.conf import settings
 
-from izumi_infra.extensions.conf import extensions_settings
+from one_infra.extensions.conf import extensions_settings
 
 logger = logging.getLogger(__name__)
 
@@ -24,7 +24,7 @@ def send_email_to_superuser_task(subject: str, message: str) -> None:
             extensions_settings.ALERT_FROM_EMAIL,
             settings.SERVER_EMAIL,
             settings.DEFAULT_FROM_EMAIL,
-            'alert@notifications.izumi.finance'
+            'alert@notifications.pegasys.fi'
         ]
         from_email_addr = next(addr for addr in from_email_addr_list if addr)
 

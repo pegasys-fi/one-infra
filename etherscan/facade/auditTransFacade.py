@@ -6,12 +6,12 @@ from django.db import transaction
 from django.db.models.query import QuerySet
 from intervaltree import Interval, IntervalTree
 
-from izumi_infra.etherscan.conf import etherscan_settings
-from izumi_infra.etherscan.constants import (ScanConfigAuditLevelEnum, ScanTaskStatusEnum)
-from izumi_infra.etherscan.facade.scanTransFacade import scan_trans_by_task
-from izumi_infra.etherscan.models import (ContractTransaction, ContractTransactionScanTask,
+from one_infra.etherscan.conf import etherscan_settings
+from one_infra.etherscan.constants import (ScanConfigAuditLevelEnum, ScanTaskStatusEnum)
+from one_infra.etherscan.facade.scanTransFacade import scan_trans_by_task
+from one_infra.etherscan.models import (ContractTransaction, ContractTransactionScanTask,
                                    EtherScanConfig)
-from izumi_infra.utils.collection_utils import chunks
+from one_infra.utils.collection_utils import chunks
 
 
 logger = logging.getLogger(__name__)

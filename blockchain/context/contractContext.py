@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 from typing import Generic, TypeVar
 
-from izumi_infra.blockchain.conf import blockchain_settings
-from izumi_infra.blockchain.context import blockchainHolder, blockchainMetaHolder
-from izumi_infra.blockchain.facade.contractFacade import ContractFacade
-from izumi_infra.blockchain.models import Blockchain, Contract
-from izumi_infra.blockchain.types import ContractMeta
-from izumi_infra.utils.base_context import BaseContext
+from one_infra.blockchain.conf import blockchain_settings
+from one_infra.blockchain.context import blockchainHolder, blockchainMetaHolder
+from one_infra.blockchain.facade.contractFacade import ContractFacade
+from one_infra.blockchain.models import Blockchain, Contract
+from one_infra.blockchain.types import ContractMeta
+from one_infra.utils.base_context import BaseContext
 
 
 F = TypeVar('F')

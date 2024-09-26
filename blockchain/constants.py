@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 from enum import Enum
 from typing import Dict, List, Tuple
-from izumi_infra.utils.enum import StringFieldEnum, IntegerFieldEnum
-from izumi_infra.utils import abiJsonLoader
+from one_infra.utils.enum import StringFieldEnum, IntegerFieldEnum
+from one_infra.utils import abiJsonLoader
 
 ZERO_ADDRESS = '0x0000000000000000000000000000000000000000'
 ONE_ADDRESS = '0x0000000000000000000000000000000000000001'
@@ -11,6 +11,7 @@ class BlockChainVmEnum(StringFieldEnum):
     EVM = "EVM"
 
 class ChainIdEnum(IntegerFieldEnum):
+    RolluxTestnet = 57000
     EthereumMainnet = 1
     Rinkeby = 4
     Optimism = 10
@@ -39,17 +40,20 @@ class ChainIdEnum(IntegerFieldEnum):
 
 # ChainMeta like
 ChainConfig = {
-    ChainIdEnum.EthereumMainnet: {
-        'id': ChainIdEnum.EthereumMainnet,
-        'rpc_url': 'https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161'
+    ChainIdEnum.RolluxTestnet: {
+        'id': ChainIdEnum.RolluxTestnet,
+        'rpc_url': 'https://rpc-tanenbaum.rollux.com/'
     }
 }
 
 class TokenSymbol(StringFieldEnum):
     USDC = 'USDC'
+    WSYS = 'WSYS'
+    PSYS = 'PSYS'
     ETH = 'ETH'
     USDT = 'USDT'
     DAI = 'DAI'
+    WBTC = 'WBTC'
     BIT = 'BIT'
     iZi = 'iZi'
     MIM = 'MIM'
@@ -65,6 +69,11 @@ class TokenSymbol(StringFieldEnum):
 
     RDT = 'RDT'
     RDT2 = 'RDT2'
+
+    # test
+    FeeA = 'FeeA',
+    FeeB = 'FeeB',
+
 
 class AccountContractRelationshipTypeEnum(StringFieldEnum):
     OWNER = "Account is the contract owner"
@@ -113,13 +122,13 @@ class UniswapV3PoolTopicEnum(BaseTopicEnum):
 
 class BaseContractABI(Enum):
     # ERC
-    ERC20_ABI = abiJsonLoader.get('izumi_infra.blockchain.erc.erc20.json')
+    ERC20_ABI = abiJsonLoader.get('one_infra.blockchain.erc.erc20.json')
 
     # Unisawp v3
-    UNISWAP_SWAP_ROUTER_ABI = abiJsonLoader.get('izumi_infra.blockchain.uniswap.UniswapV3SwapRouter.json')
-    UNISWAP_NONFUNGIBLE_POSITION_MANAGER_ABI = abiJsonLoader.get('izumi_infra.blockchain.uniswap.UniswapPositionManager.json')
-    UNISWAP_POOL_ABI = abiJsonLoader.get('izumi_infra.blockchain.uniswap.UniswapV3Pool.json')
-    UNISWAP_FACTORY_ABI = abiJsonLoader.get('izumi_infra.blockchain.uniswap.UniswapV3Factory.json')
+    UNISWAP_SWAP_ROUTER_ABI = abiJsonLoader.get('one_infra.blockchain.uniswap.UniswapV3SwapRouter.json')
+    UNISWAP_NONFUNGIBLE_POSITION_MANAGER_ABI = abiJsonLoader.get('one_infra.blockchain.uniswap.UniswapPositionManager.json')
+    UNISWAP_POOL_ABI = abiJsonLoader.get('one_infra.blockchain.uniswap.UniswapV3Pool.json')
+    UNISWAP_FACTORY_ABI = abiJsonLoader.get('one_infra.blockchain.uniswap.UniswapV3Factory.json')
 
 class BasicContractInfoEnum(Enum):
     def __str__(self) -> str:

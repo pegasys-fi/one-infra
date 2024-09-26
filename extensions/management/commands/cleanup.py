@@ -42,7 +42,7 @@ class Command(BaseCommand):
 
         # create new database
         connection = Database.connect(**kwargs)
-        # CREATE DATABASE IF NOT EXISTS izumi CHARACTER SET utf8mb4;
+        # CREATE DATABASE IF NOT EXISTS pone CHARACTER SET utf8mb4;
         drop_query = 'DROP DATABASE IF EXISTS `%s`' % database_name
         create_query = 'CREATE DATABASE `%s` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci' % database_name
         logging.info('Executing... "%s"', drop_query)

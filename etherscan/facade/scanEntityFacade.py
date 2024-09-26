@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 from datetime import datetime, timedelta
 from time import sleep
-from izumi_infra.etherscan.constants import ProcessingStatusEnum
+from one_infra.etherscan.constants import ProcessingStatusEnum
 
 from django.db.models import F
-from izumi_infra.etherscan.models import ContractEvent, ContractTransaction
-from izumi_infra.etherscan.conf import etherscan_settings
+from one_infra.etherscan.models import ContractEvent, ContractTransaction
+from one_infra.etherscan.conf import etherscan_settings
 
-from izumi_infra.utils.db_utils import order_chunked_iterator
+from one_infra.utils.db_utils import order_chunked_iterator
 
 def scan_and_touch_entity():
     """

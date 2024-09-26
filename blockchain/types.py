@@ -3,7 +3,7 @@ from datetime import datetime
 from typing import Dict, List, NewType, TypedDict
 from eth_typing.evm import ChecksumAddress
 
-from izumi_infra.blockchain.constants import ChainIdEnum, BaseContractABI, TokenSymbol
+from one_infra.blockchain.constants import ChainIdEnum, BaseContractABI, TokenSymbol
 
 class ChainMeta(TypedDict):
     id: ChainIdEnum

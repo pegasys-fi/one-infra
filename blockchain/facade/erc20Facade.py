@@ -4,11 +4,11 @@ import logging
 from cachetools import LRUCache, cached
 from eth_utils import to_checksum_address
 
-from izumi_infra.blockchain.conf import blockchain_settings
-from izumi_infra.blockchain.constants import BaseContractInfoEnum
-from izumi_infra.blockchain.context import blockchainHolder, contractHolder
-from izumi_infra.blockchain.models import Blockchain, Contract
-from izumi_infra.blockchain.types import Erc20TokenInfo
+from one_infra.blockchain.conf import blockchain_settings
+from one_infra.blockchain.constants import BaseContractInfoEnum
+from one_infra.blockchain.context import blockchainHolder, contractHolder
+from one_infra.blockchain.models import Blockchain, Contract
+from one_infra.blockchain.types import Erc20TokenInfo
 
 logger = logging.getLogger(__name__)
 
